@@ -1,7 +1,25 @@
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
 h1 {
-  color: blue;
+  /* absolute: postion above canvas */
+  color: black;
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  font-family: 'Times New Roman';
+  font-size: 7em;
   text-transform: uppercase;
-  text-align: center;
-  font-size: 100px;
-  font-family: monospace;
+  width: auto;
+  line-height: .8em;
+  border-style: solid;
+  border-color; black;
+  border-width: 5px;
+  padding: .2em;
 }
