@@ -10,11 +10,14 @@ canvas {
 h1 {
   /* absolute: postion above canvas */
   color: black;
-  position: absolute;
+  position: fixed;
+  /* top: 50%; */
+  /* left: 50%;
+  transform: translate(-50%, -50%); */
   top: 2em;
   left: 2em;
   font-family: 'Times New Roman';
-  font-size: 7em;
+  font-size: 5em;
   text-transform: uppercase;
   width: auto;
   line-height: .8em;
@@ -23,3 +26,51 @@ h1 {
   border-width: 5px;
   padding: .2em;
 }
+
+.line {
+  width: 400px;
+  height: 50px;
+  border-bottom: 5px solid black;
+  -webkit-transform:
+      translateY(-20px)
+      translateX(5px)
+      rotate(27deg);
+  position: absolute;
+  left: 51%;
+  top: 56%;
+
+}
+
+.line_2 {
+
+  width: 400px;
+  height: 50px;
+  border-bottom: 5px solid black;
+  -webkit-transform:
+      translateY(20px)
+      translateX(5px)
+      rotate(-26deg);
+  position: absolute;
+  left: 13%;
+  top: 50%;
+
+}
+
+.line_d {
+  border-bottom: 5px solid black;
+  transform: rotate(45deg) translateY(50px) translateX(5px);;
+  width: 1000px;
+
+}
+
+/* i {
+  border: solid green;
+  border-width: 0 3px 40px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+} */
