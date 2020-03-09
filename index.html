@@ -18,6 +18,25 @@
     <!-- <div class="line_d"></div> -->
 
     <div class="arrow_real"></div>
+    <p>
+      <select class="age" name="age">
+        <option value="age">age</option>
+        <option value="young">young</option>
+        <option value="old">old</option>
+        <option value="intergenerational">intergenerational</option>
+      </select>
+      <select class="frequency " name="frequency ">
+        <option value="frequency">frequency</option>
+        <option value="instant">instant</option>
+        <option value="over time">over time</option>
+      </select>
+      <select class="characteristics" name="characteristics">
+        <option value="characteristics">characteristics</option>
+        <option value="gender">gender</option>
+        <option value="race">race</option>
+        <option value="religion">religion</option>
+      </select>
+  </p>
 
     <!-- <p> </p>
     <img src="images/arrow.jpg" alt="image"> -->
@@ -231,6 +250,7 @@
        // re draw render every time screen refreshes
       render();
 
+// THISSS
       const loader = new THREE.TextureLoader();
       const bgTexture = loader.load('images/background6.png');
       scene.background = bgTexture;

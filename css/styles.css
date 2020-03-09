@@ -8,6 +8,27 @@ canvas {
 }
 
 
+.age {
+  position: absolute;
+  left: 3%;
+  top: 50%;
+}
+.frequency {
+  position: absolute;
+  left: 3%;
+  top: 60%;
+}
+
+.characteristics {
+  position: absolute;
+  left: 3%;
+  top: 70%;
+}
+
+
+
+
+
 /* #c {
     width: 100vw;
     height: 100vh;
