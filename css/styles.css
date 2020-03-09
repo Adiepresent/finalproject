@@ -7,6 +7,16 @@ canvas {
   display: block;
 }
 
+
+/* #c {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background: url(images/arrow.jpg) no-repeat center center;
+    background-size: cover;
+} */
+
+
 h1 {
   /* absolute: postion above canvas */
   color: black;
@@ -61,6 +71,46 @@ h1 {
   transform: rotate(45deg) translateY(50px) translateX(5px);;
   width: 1000px;
 
+}
+
+.arrow {
+  position: absolute;
+
+}
+
+div {
+  width: 5px;
+  height: 700px;
+  background-color: red;
+  /* Rotate div */
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+  transform-origin: bottom left;
+  position: absolute;
+  left: 36%;
+  top: -6%;
+}
+
+div:before,
+div:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  border-style: solid;
+  border-color: red transparent;
+}
+div:after {
+  top: 0;
+  transform: translate(-40%, -50%);
+  border-width: 0 10px 20px 10px;
+}
+div:before {
+  bottom: 0;
+  transform: translate(-40%, 50%);
+  border-width: 20px 10px 0 10px;
 }
 
 /* i {

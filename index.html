@@ -13,7 +13,23 @@
     <!-- <h1> Network </h1> -->
     <!-- <div class="line"></div>
     <div class="line_2"></div> -->
-    <div class="line_d"></div>
+
+
+    <!-- <div class="line_d"></div> -->
+
+    <div class="arrow_real"></div>
+
+    <!-- <p> </p>
+    <img src="images/arrow.jpg" alt="image"> -->
+
+
+
+
+    <!-- <div class="arrow">
+        <img src="images/arrow.jpg" alt=arrowt>
+    </div> -->
+
+
     <!-- <p>Up arrow: <i class="arrow up"></i></p> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
@@ -26,6 +42,7 @@
       var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000)
       camera.position.z = 10;
 
+      const canvas = document.querySelector('#c');
       var renderer = new THREE.WebGLRenderer({antialias: true});
       renderer.setClearColor("#e5e5e5");
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -213,6 +230,17 @@
 
        // re draw render every time screen refreshes
       render();
+
+      const loader = new THREE.TextureLoader();
+      const bgTexture = loader.load('images/arrow.jpg');
+      scene.background = bgTexture;
+
+
+      // const loader = new THREE.TextureLoader();
+      // loader.load('https://images.pexels.com/photos/1205301/pexels-photo-1205301.jpeg' , function(texture)
+      //       {
+      //        scene.background = texture;
+      //       });
 
 
       // document.body.addEventListener("click", () => {
