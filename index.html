@@ -57,7 +57,6 @@
 
     <script>
       var scene = new THREE.Scene();
-
       var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000)
       camera.position.z = 10;
 
@@ -121,14 +120,6 @@
       scene.add(arrow);
 
 
-
-
-
-      // mesh.position.set(-2, 2, 2);
-      // mesh.position.y=2;
-      // mesh.rotation.set(45,0,0);
-      // mesh.scale.set(1,2,1);
-      // scene.add(mesh);
       var colors = ["#16CF8E", "#D55490", "#D55490", "#166DCF", "#61166D", "#6516CF"]
 
       for (var i = 0; i <20; i++) {
@@ -147,12 +138,12 @@
         mesh.position.y = (radius * Math.sin(angle)) + (width/2) - radius;
         mesh.position.z = 0;
         scene.add(mesh);
-        // meshx+=1;
+
       }
 
       var material_inner_2 = new THREE.MeshLambertMaterial({color:"#69193E"});
       var material_inner = new THREE.MeshLambertMaterial({color:"#D55490"});
-      // meshx = -10;
+
       for (var i = 0; i <15; i++) {
         radius = 5;
         width = (radius * 2) + 1;
@@ -177,7 +168,7 @@
           scene.add(mesh);
         }
 
-        // meshx+=1;
+
       }
 
       var material_inner = new THREE.MeshLambertMaterial({color:"#D55490"});
@@ -189,14 +180,10 @@
         var mesh = new THREE.Mesh(geometry, material_inner);
         mesh.name = "cube_3";
         mesh.myid = i
-        // console.log("original x")
-        // console.log((radius * Math.cos(angle)) + (width/2) - radius)
         mesh.position.x = (radius * Math.cos(angle)) + (width/2) - radius;
         mesh.position.y = (radius * Math.sin(angle)) + (width/2) - radius;
         mesh.position.z = 0;
-        // mesh.material.color.set("red")
         scene.add(mesh);
-        // meshx+=1;
       }
 
 
@@ -212,14 +199,6 @@
         return values;
       };
 
-
-
-
-      // var geometry = new THREE.BoxGeometry(1, 1, 1);
-      // var material = new THREE.MeshLambertMaterial({color:0xFFCC00});
-      // var mesh = new THREE.Mesh(geometry, material);
-      // mesh.position.y = 2;
-      // scene.add(mesh);
 
 
       var light = new THREE.PointLight(0xFFFFFF, 1, 1000)
@@ -268,9 +247,7 @@
         // return array based on where mouse is at in scne
         var intersects = raycaster.intersectObjects(scene.children, true);
         for (var i = 0; i < intersects.length; i++) {
-          // console.log(intersects[i].object)
 
-          // intersects[i].object.material.color.set(0xff0000)
           this.tl = new TimelineMax();
           this.tl.to(intersects[i].object.scale, 1, {x: 2, ease: Expo.easeOut})
           this.tl.to(intersects[i].object.scale, .5, {x: .5, ease: Expo.easeOut})
@@ -287,36 +264,19 @@
         }
       }
 
-      // function rotation() {
-      //   mesh.rotation.y += 0.01;
-      //   mesh.rotation.x += 0.01;
-      //
-      // }
 
 
        // re draw render every time screen refreshes
       render();
 
-// THISSS
+// Background
       const loader = new THREE.TextureLoader();
       const bgTexture = loader.load('images/background6.png');
       scene.background = bgTexture;
 
 
-      // const loader = new THREE.TextureLoader();
-      // loader.load('https://images.pexels.com/photos/1205301/pexels-photo-1205301.jpeg' , function(texture)
-      //       {
-      //        scene.background = texture;
-      //       });
-
-
-      // document.body.addEventListener("click", () => {
-      //   this.tl.play();
-      // })
-
       window.addEventListener("click", onMouseMove);
       // window.addEventListener("mousemove", rotation);
-
 
 
     </script>
