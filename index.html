@@ -115,6 +115,7 @@
 
 
       // set up the cubes
+      //inner cube:
       var geometry = new THREE.BoxGeometry(.5, .5, .5);
       var geometry_big = new THREE.BoxGeometry(1, 1, 1);
       var material = new THREE.MeshLambertMaterial({color:"#C7005D"});
@@ -125,6 +126,8 @@
       scene.add(mesh_center);
 
       var colors = ["#16CF8E", "#D55490", "#D55490", "#166DCF", "#61166D", "#6516CF"]
+
+      //outter cubes - chose a random color
       for (var i = 0; i <20; i++) {
         radius = 7;
         width = (radius * 2) + 1;
@@ -143,6 +146,7 @@
         scene.add(mesh);
       }
 
+      // middle circle - switch off between 2 colors
       var material_inner_2 = new THREE.MeshLambertMaterial({color:"#69193E"});
       var material_inner = new THREE.MeshLambertMaterial({color:"#D55490"});
       for (var i = 0; i <15; i++) {
@@ -150,6 +154,7 @@
         width = (radius * 2) + 1;
         height = (radius * 2) + 1;
         angle = (i / (15/2)) * Math.PI;
+        // if its an even circle, choose 1 color
         if (i % 2 == 0) {
           var mesh = new THREE.Mesh(geometry, material_inner_2);
           mesh.name = "cube_2";
@@ -170,6 +175,7 @@
         }
       }
 
+      // inner circle: one color
       var material_inner = new THREE.MeshLambertMaterial({color:"#D55490"});
       for (var i = 0; i <15; i++) {
         radius = 3;
@@ -270,7 +276,6 @@
       const loader = new THREE.TextureLoader();
       const bgTexture = loader.load('images/background6.png');
       scene.background = bgTexture;
-
 
       window.addEventListener("click", onMouseMove);
       // window.addEventListener("mousemove", rotation);
