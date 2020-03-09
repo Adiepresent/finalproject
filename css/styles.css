@@ -102,7 +102,7 @@ h1 {
 div {
   width: 5px;
   height: 700px;
-  background-color: red;
+  background-color: black;
   /* Rotate div */
   -ms-transform: rotate(30deg);
   /* IE 9 */
