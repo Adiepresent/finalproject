@@ -5,11 +5,15 @@ body {
 
 canvas {
   display: block;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:-1;
 }
 
 
 .age {
-  position: absolute;
+  position: fixed;
   left: 3%;
   top: 50%;
 }
@@ -102,7 +106,7 @@ h1 {
 div {
   width: 5px;
   height: 700px;
-  background-color: black;
+  background-color: red;
   /* Rotate div */
   -ms-transform: rotate(30deg);
   /* IE 9 */
@@ -110,9 +114,12 @@ div {
   /* Chrome, Safari, Opera */
   transform: rotate(30deg);
   transform-origin: bottom left;
-  position: absolute;
-  left: 36%;
-  top: -6%;
+  /* position: absolute; */
+  position:fixed;
+  left: 40%;
+  top: 30%;
+  /* left: 36%;
+  top: -6%; */
 }
 
 div:before,
@@ -145,3 +152,34 @@ div:before {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 } */
+.container{
+  padding: 10px
+  border: 1px solid silver
+}
+
+.container .text{
+  resize: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  height: 100%;
+  margin: -10px;
+}
+
+.crossed {
+     /* color: red; */
+     background:
+         linear-gradient(to top left,
+             rgba(225,225,225,0) 0%,
+             rgba(225,225,225,0) calc(50% - 0.8px),
+             rgba(225,225,225,1) 50%,
+             rgba(225,225,225,0) calc(50% + 0.8px),
+             rgba(225,225,225,0) 100%),
+         linear-gradient(to top right,
+             rgba(225,225,225,0) 0%,
+             rgba(225,225,225,0) calc(50% - 0.8px),
+             rgba(225,225,225,1) 50%,
+             rgba(0225,225,225,0) calc(50% + 0.8px),
+             rgba(225,225,225,0) 100%);
+}

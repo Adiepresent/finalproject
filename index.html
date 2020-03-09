@@ -16,8 +16,11 @@
 
 
     <!-- <div class="line_d"></div> -->
+    <!-- <textarea class="crossed"></textarea> -->
+    <!-- <p class="container"><textarea class="crossed"></textarea></p> -->
 
-    <div class="arrow_real"></div>
+
+    <!-- <div class="arrow_real"></div> -->
     <p>
       <select class="age" name="age">
         <option value="age">age</option>
@@ -79,13 +82,50 @@
 
 
       var geometry = new THREE.BoxGeometry(.5, .5, .5);
+      var geometry_big = new THREE.BoxGeometry(1, 1, 1);
       var material = new THREE.MeshLambertMaterial({color:"#C7005D"});
-      var mesh = new THREE.Mesh(geometry, material);
-      mesh.name = "cube_center";
-      mesh.position.x = .5
-      mesh.position.y = .5
-      scene.add(mesh);
+      var mesh_center = new THREE.Mesh(geometry_big, material);
+      mesh_center.name = "cube_center";
+      mesh_center.position.x = .5
+      mesh_center.position.y = .5
+      scene.add(mesh_center);
+
+      var dir = new THREE.Vector3( 90, 2, 0 );
+      //normalize the direction vector (convert to vector of length 1)
+      dir.normalize();
+      var origin = new THREE.Vector3( 0, 0, 0 );
+      var length = 0;
+      var hex = 0xffff00;
+      var headLength = 1;
+      var headWidth = 1;
+      var arrow = new THREE.ArrowHelper( dir, origin, length, hex, headLength, headWidth);
+      arrow.name = "arrow";
+      // arrow.setLength(length)
+      scene.add(arrow);
       // var mesh = new THREE.Mesh(geometry, material);
+
+
+      var dir2 = new THREE.Vector3( 2, 90, 0 );
+      dir2.normalize();
+      var arrow = new THREE.ArrowHelper( dir2, origin, length, hex, headLength, headWidth);
+      arrow.name = "arrow";
+      scene.add(arrow);
+
+      var dir3 = new THREE.Vector3( 2, -180, 0 );
+      dir3.normalize();
+      var arrow = new THREE.ArrowHelper( dir3, origin, length, hex, headLength, headWidth);
+      arrow.name = "arrow";
+      scene.add(arrow);
+
+      var dir4 = new THREE.Vector3( -90, 2, 0 );
+      dir4.normalize();
+      var arrow = new THREE.ArrowHelper( dir4, origin, length, hex, headLength, headWidth);
+      arrow.name = "arrow";
+      scene.add(arrow);
+
+
+
+
 
       // mesh.position.set(-2, 2, 2);
       // mesh.position.y=2;
@@ -214,6 +254,11 @@
             mesh.rotation.y += 0.001;
           }
         });
+        scene.traverse(function(arrow) {
+          if (arrow.name =="arrow") {
+            arrow.setLength(length+=.0003)
+          }
+        });
 
         renderer.render(scene, camera);
       }
@@ -226,17 +271,22 @@
         // return array based on where mouse is at in scne
         var intersects = raycaster.intersectObjects(scene.children, true);
         for (var i = 0; i < intersects.length; i++) {
-          console.log(intersects[i].object)
+          // console.log(intersects[i].object)
 
           // intersects[i].object.material.color.set(0xff0000)
           this.tl = new TimelineMax();
           this.tl.to(intersects[i].object.scale, 1, {x: 2, ease: Expo.easeOut})
           this.tl.to(intersects[i].object.scale, .5, {x: .5, ease: Expo.easeOut})
           this_func = random_func()
-          this.tl.to(intersects[i].object.position, .5, {x: (this_func.radius * Math.cos(this_func.angle)) + (this_func.width/2) - this_func.radius, ease: Expo.easeOut})
-          this.tl.to(intersects[i].object.position, .5, {y: (this_func.radius * Math.sin(this_func.angle)) + (this_func.width/2) - this_func.radius, ease: Expo.easeOut}, "=-.5")
-          this.tl.to(intersects[i].object.position, .5, {z: 0, ease: Expo.easeOut}, "=-1")
+          this.tl.to(mesh_center.position, .5, {x: intersects[i].object.position.x, ease: Expo.easeOut})
+          this.tl.to(mesh_center.position, .5, {y: intersects[i].object.position.y, ease: Expo.easeOut}, "=-.5")
+          this.tl.to(mesh_center.position, .5, {z: 0, ease: Expo.easeOut}, "=-1")
+          // this.tl.to(intersects[i].object.position, .5, {x: (this_func.radius * Math.cos(this_func.angle)) + (this_func.width/2) - this_func.radius, ease: Expo.easeOut})
+          // this.tl.to(intersects[i].object.position, .5, {y: (this_func.radius * Math.sin(this_func.angle)) + (this_func.width/2) - this_func.radius, ease: Expo.easeOut}, "=-.5")
+          // this.tl.to(intersects[i].object.position, .5, {z: 0, ease: Expo.easeOut}, "=-1")
           this.tl.to(intersects[i].object.rotation, .5, {y: Math.Pi*.5, ease: Expo.easeOut}, "=-1.5")
+          this.tl.to(mesh_center.position, .5, {x: .5, ease: Expo.easeOut}, "=+1")
+          this.tl.to(mesh_center.position, .5, {y: .5, ease: Expo.easeOut}, "=-.5")
         }
       }
 
